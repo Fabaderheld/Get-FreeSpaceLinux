@@ -16,7 +16,7 @@ Long description
 
 ### EXAMPLE 1
 ```
-./Get-FreeSpaceLinux.ps1 -HumanReadable
+./Get-FreeSpaceLinux.ps1 -HumanReadable | Format-Table
 Outputs df -h as objects instead of a string as df does
 ```
 
