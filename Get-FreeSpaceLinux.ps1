@@ -46,20 +46,18 @@ foreach ($Key in $Keys) {
 
     }
 
-    $Result = New-Object collections.generic.list[object]
-
-} #>
+$Result = New-Object collections.generic.list[object]
 
 foreach ($Line in $DFOutput[1..($DFOutput.length - 1)]) {
 
     $Values = ($Line -replace '\s+', ' ').split(" ")
     $Result += [PSCustomObject]@{
-        Filesystem  = $Values[0]
-        "1K-blocks" = $Values[1]
-        Used        = $Values[2]
-        Available   = $Values[3]
-        "Use%"      = $Values[4]
-        MountedOn   = $Values[5]
+        Filesystem  = [string]$Values[0]
+        "1K-blocks" = [long]$Values[1]
+        Used        = [long]$Values[2]
+        Available   = [long]$Values[3]
+        "Use%"      = [string]$Values[4]
+        MountedOn   = [string]$Values[5]
     }
 }
 
