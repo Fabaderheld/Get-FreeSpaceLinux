@@ -4,7 +4,7 @@
 .DESCRIPTION
    Long description
 .EXAMPLE
-   PS C:\> ./Get-FreeSpaceLinux.ps1 -HumanReadable
+   PS C:\> ./Get-FreeSpaceLinux.ps1 -HumanReadable | Format-Table
    Outputs df -h as objects instead of a string as df does
 .PARAMETER HumanReadable
    Outputs in human readable format like G or M instead of bytes
@@ -45,6 +45,7 @@ foreach ($Key in $Keys) {
         }
 
     }
+} #>
 
 $Result = New-Object collections.generic.list[object]
 
@@ -61,4 +62,4 @@ foreach ($Line in $DFOutput[1..($DFOutput.length - 1)]) {
     }
 }
 
-$Result | Format-Table
+$Result
